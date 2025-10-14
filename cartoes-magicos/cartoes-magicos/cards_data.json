@@ -1,0 +1,23 @@
+{
+  "paulo": { "name": "Paulo", "fundo": "imagens/paulo/fundo.svg", "3d": "imagens/paulo/3d.svg", "titulo": "imagens/paulo/titulo.svg", "stats": { "forca": 85, "agilidade": 70, "magia": 60 } },
+  "pedro": { "name": "Pedro", "fundo": "imagens/pedro/fundo.svg", "3d": "imagens/pedro/3d.svg", "titulo": "imagens/pedro/titulo.svg", "stats": { "forca": 78, "agilidade": 65, "magia": 45 } },
+  "joao": { "name": "João", "fundo": "imagens/joao/fundo.svg", "3d": "imagens/joao/3d.svg", "titulo": "imagens/joao/titulo.svg", "stats": { "forca": 60, "agilidade": 70, "magia": 80 } },
+  "thiago_maior": { "name": "Tiago Maior", "fundo": "imagens/thiago_maior/fundo.svg", "3d": "imagens/thiago_maior/3d.svg", "titulo": "imagens/thiago_maior/titulo.svg", "stats": { "forca": 72, "agilidade": 68, "magia": 50 } },
+  "isaias": { "name": "Isaías", "fundo": "imagens/isaias/fundo.svg", "3d": "imagens/isaias/3d.svg", "titulo": "imagens/isaias/titulo.svg", "stats": { "forca": 55, "agilidade": 45, "magia": 90 } },
+  "jeremias": { "name": "Jeremias", "fundo": "imagens/jeremias/fundo.svg", "3d": "imagens/jeremias/3d.svg", "titulo": "imagens/jeremias/titulo.svg", "stats": { "forca": 50, "agilidade": 40, "magia": 88 } },
+  "judas_escariotes": { "name": "Judas Escariotes", "fundo": "imagens/judas_escariotes/fundo.svg", "3d": "imagens/judas_escariotes/3d.svg", "titulo": "imagens/judas_escariotes/titulo.svg", "stats": { "forca": 48, "agilidade": 50, "magia": 30 } },
+  "judas_tadeu": { "name": "Judas Tadeu", "fundo": "imagens/judas_tadeu/fundo.svg", "3d": "imagens/judas_tadeu/3d.svg", "titulo": "imagens/judas_tadeu/titulo.svg", "stats": { "forca": 62, "agilidade": 58, "magia": 40 } },
+  "moises": { "name": "Moisés", "fundo": "imagens/moises/fundo.svg", "3d": "imagens/moises/3d.svg", "titulo": "imagens/moises/titulo.svg", "stats": { "forca": 80, "agilidade": 55, "magia": 85 } },
+  "davi": { "name": "Davi", "fundo": "imagens/davi/fundo.svg", "3d": "imagens/davi/3d.svg", "titulo": "imagens/davi/titulo.svg", "stats": { "forca": 75, "agilidade": 80, "magia": 50 } },
+  "simao_zelota": { "name": "Simão Zelota", "fundo": "imagens/simao_zelota/fundo.svg", "3d": "imagens/simao_zelota/3d.svg", "titulo": "imagens/simao_zelota/titulo.svg", "stats": { "forca": 68, "agilidade": 66, "magia": 35 } },
+  "mateus": { "name": "Mateus", "fundo": "imagens/mateus/fundo.svg", "3d": "imagens/mateus/3d.svg", "titulo": "imagens/mateus/titulo.svg", "stats": { "forca": 58, "agilidade": 60, "magia": 62 } },
+  "tiago_menor": { "name": "Tiago Menor", "fundo": "imagens/tiago_menor/fundo.svg", "3d": "imagens/tiago_menor/3d.svg", "titulo": "imagens/tiago_menor/titulo.svg", "stats": { "forca": 56, "agilidade": 59, "magia": 48 } },
+  "serpente": { "name": "Serpente", "fundo": "imagens/serpente/fundo.svg", "3d": "imagens/serpente/3d.svg", "titulo": "imagens/serpente/titulo.svg", "stats": { "forca": 40, "agilidade": 75, "magia": 20 } },
+  "abraao": { "name": "Abraão", "fundo": "imagens/abraao/fundo.svg", "3d": "imagens/abraao/3d.svg", "titulo": "imagens/abraao/titulo.svg", "stats": { "forca": 82, "agilidade": 45, "magia": 40 } },
+  "elias": { "name": "Elias", "fundo": "imagens/elias/fundo.svg", "3d": "imagens/elias/3d.svg", "titulo": "imagens/elias/titulo.svg", "stats": { "forca": 60, "agilidade": 50, "magia": 88 } },
+  "jose_pai_de_jesus": { "name": "José (pai de Jesus)", "fundo": "imagens/jose_pai_de_jesus/fundo.svg", "3d": "imagens/jose_pai_de_jesus/3d.svg", "titulo": "imagens/jose_pai_de_jesus/titulo.svg", "stats": { "forca": 50, "agilidade": 52, "magia": 30 } },
+  "daniel": { "name": "Daniel", "fundo": "imagens/daniel/fundo.svg", "3d": "imagens/daniel/3d.svg", "titulo": "imagens/daniel/titulo.svg", "stats": { "forca": 65, "agilidade": 60, "magia": 70 } },
+  "maria_madalena": { "name": "Maria Madalena", "fundo": "imagens/maria_madalena/fundo.svg", "3d": "imagens/maria_madalena/3d.svg", "titulo": "imagens/maria_madalena/titulo.svg", "stats": { "forca": 45, "agilidade": 60, "magia": 55 } },
+  "maria": { "name": "Maria", "fundo": "imagens/maria/fundo.svg", "3d": "imagens/maria/3d.svg", "titulo": "imagens/maria/titulo.svg", "stats": { "forca": 48, "agilidade": 50, "magia": 58 } },
+  "jesus_bonus": { "name": "Jesus", "fundo": "imagens/jesus_bonus/fundo.svg", "3d": "imagens/jesus_bonus/3d.svg", "titulo": "imagens/jesus_bonus/titulo.svg", "stats": { "forca": 100, "agilidade": 100, "magia": 100 } }
+}

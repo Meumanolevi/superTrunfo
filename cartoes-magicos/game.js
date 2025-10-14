@@ -1,0 +1,88 @@
+// Consolidated game.js (frontend) — client logic for Cartões Mágicos
+document.addEventListener('DOMContentLoaded', ()=>{
+  const drawBtns = document.querySelectorAll('.draw-btn');
+  const playerHand = document.querySelector('.player-bottom .player-hand');
+  const chatForm = document.getElementById('chat-form');
+  const chatInput = document.getElementById('chat-input');
+  const chatMessages = document.getElementById('chat-messages');
+  const turnIndicator = document.getElementById('turn-indicator');
+
+  function createCard(title, img){
+    const card = document.createElement('div');
+    card.className = 'card floating';
+    if(img){
+      const im = document.createElement('img');
+      im.src = img; im.alt = title; im.style.width = '100%'; im.style.height='100%'; im.style.objectFit='cover';
+      card.appendChild(im);
+    } else {
+      card.textContent = title || 'Carta';
+    }
+    setTimeout(()=>card.classList.remove('floating'),300);
+    return card;
+  }
+
+  // try to connect to socket.io if available
+  let socket = null;
+  try{ if(window.io) socket = io(); }catch(e){ socket = null; }
+
+  function appendChat(who, text){
+    const item = document.createElement('div'); item.className='chat-item';
+    const whoEl = document.createElement('div'); whoEl.className='chat-who'; whoEl.textContent = who;
+    const txt = document.createElement('div'); txt.className='chat-text'; txt.textContent = text;
+    item.appendChild(whoEl); item.appendChild(txt);
+    chatMessages && chatMessages.appendChild(item);
+    if(chatMessages) chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  if(socket){
+    socket.on('connect', ()=> console.log('socket connected', socket.id));
+    socket.on('state', s => { if(s.turnOwner && turnIndicator) turnIndicator.textContent = 'Turno: ' + s.turnOwner; });
+    socket.on('chat:message', m => appendChat(m.who || 'Player', m.text || m));
+    socket.on('draw:card', d => { if(d.player === 'player'){ const c = createCard(d.card.title, d.card.img); playerHand.appendChild(c); } });
+    socket.on('turn:update', t => { if(turnIndicator) turnIndicator.textContent = 'Turno: ' + t.turnOwner; });
+  }
+
+  // interactions
+  drawBtns.forEach(btn => btn.addEventListener('click', ()=>{
+    const player = btn.dataset.player;
+    if(socket) socket.emit('draw:request', player);
+    else if(player === 'player') playerHand.appendChild(createCard('Carta ' + (Math.floor(Math.random()*1000))));
+  }));
+
+  document.querySelectorAll('.deck-toggle').forEach(t => t.addEventListener('click', ()=>{
+    const expanded = t.getAttribute('aria-expanded') === 'true'; t.setAttribute('aria-expanded', String(!expanded));
+    const panel = t.nextElementSibling; if(panel) panel.setAttribute('aria-hidden', String(expanded));
+  }));
+
+  chatForm && chatForm.addEventListener('submit', e => { e.preventDefault(); const txt = chatInput.value.trim(); if(!txt) return; if(socket){ socket.emit('chat:send', txt); chatInput.value=''; } else { appendChat('Você (local)', txt); chatInput.value=''; } });
+
+  function showToast(text, timeout = 2600){
+    let toast = document.querySelector('.game-toast');
+    if(!toast){ toast = document.createElement('div'); toast.className = 'game-toast'; Object.assign(toast.style,{position:'fixed',right:'18px',bottom:'18px',padding:'10px 14px',background:'#071018',color:'#cfeefb',borderRadius:'8px',zIndex:9999,transition:'opacity 220ms'}); document.body.appendChild(toast); }
+    toast.textContent = text; toast.style.opacity = '1'; clearTimeout(toast._tm); toast._tm = setTimeout(()=> toast.style.opacity = '0', timeout);
+  }
+
+  // handle ?card= parameter — load artwork info from frontend/cards_data.json when available
+  (async function handleCardParam(){
+    try{
+      const params = new URLSearchParams(window.location.search);
+      const cardParam = params.get('card');
+      if(!cardParam) return;
+      let data = null;
+      try{ const res = await fetch('cards_data.json'); data = await res.json(); }catch(e){ data = null; }
+      const info = data && data[cardParam] ? data[cardParam] : null;
+      const title = (info && info.name) ? info.name : cardParam;
+      const img = (info && (info['3d'] || info['3d'])) ? (info['3d'] || info['3d']) : null;
+      playerHand.appendChild(createCard(title + ' (link)', img));
+      showToast('Carta importada: ' + title);
+    }catch(e){ /* ignore */ }
+  })();
+
+  // keyboard shortcut T to end-turn
+  document.addEventListener('keydown', e => {
+    if(e.key.toLowerCase() === 't'){
+      if(socket) socket.emit('turn:end');
+      else if(turnIndicator){ const cur = turnIndicator.textContent.replace('Turno: ','') || 'player'; const next = cur === 'player' ? 'opponent' : 'player'; turnIndicator.textContent = 'Turno: ' + next; }
+    }
+  });
+});
