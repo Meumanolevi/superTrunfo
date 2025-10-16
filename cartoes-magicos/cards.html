@@ -5,14 +5,275 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartões Mágicos</title>
+    <title>Cartões Mágicos — Biblioteca</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="cardsStyle.css">
+    <!-- include shared game styles so navbar and header match the rest of the site -->
+    <link rel="stylesheet" href="game.css">
 
 </head>
 
-<body>
-    <div id="cards-container" style="display:flex;gap:28px;align-items:flex-end;padding:28px;flex-wrap:wrap;justify-content:center"></div>
-    <script src="cards_loader.js" defer></script>
+<body class="page-cards-body">
+    <div class="game-shell">
+        <header class="game-header">
+            <div style="display:flex;align-items:center;gap:16px">
+                <h1>Biblioteca de Cartas</h1>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-outline-light" onclick="location.href='home.html'">Home</button>
+                <button class="btn btn-primary" onclick="location.href='game.html'">Jogar</button>
+            </div>
+        </header>
+        <nav class="main-nav" aria-label="Navegação principal">
+            <a href="home.html">Início</a>
+            <a href="game.html">Jogar</a>
+            <a href="howtoplay.html">Como Jogar</a>
+            <a href="cards.html" class="active">Cartas</a>
+        </nav>
+
+        <main class="container py-4">
+            <div class="row mb-3 align-items-center">
+                <div class="col-md-8">
+                    <p class="lead">Explore todas as cartas disponíveis. Clique ou passe o mouse para ver os atributos.</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <button class="btn btn-outline-light" onclick="location.href='game.html'">Voltar ao Jogo</button>
+                </div>
+            </div>
+
+            <div id="cards-container" class="row g-3">
+                <!-- Trimmed to the 10 requested characters in the user-specified order -->
+
+                <!-- pedro -->
+                <div class="col-6 col-sm-4 col-md-3">
+                    <a class="card-link text-decoration-none" href="game.html?card=pedro">
+                        <div class="card-library-item">
+                            <div class="elemento__cartao card shadow-sm p-0" aria-label="Pedro">
+                                <div class="caixa__foto">
+                                    <img class="elemento__foto__cobertura" src="imagens/pedro/fundo.svg" alt="Pedro fundo" loading="lazy">
+                                </div>
+                                <img class="elemento__personagem" src="imagens/pedro/3d.svg" alt="Pedro 3d" loading="lazy">
+                                <img class="elemento__titulo" src="imagens/pedro/titulo.svg" alt="Pedro titulo" loading="lazy">
+                            </div>
+                            <aside class="elemento__stats" aria-hidden="true" aria-label="Estatísticas">
+                                <div class="stats__inner"><h4 class="stats__title">Pedro</h4>
+                                    <div class="stat"><span class="stat__label">Fé</span><div class="stat__bar"><div class="stat__fill" style="--val:45%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Coragem</span><div class="stat__bar"><div class="stat__fill" style="--val:78%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Influência</span><div class="stat__bar"><div class="stat__fill" style="--val:65%"></div></div></div>
+                                </div>
+                            </aside>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- mateus -->
+                <div class="col-6 col-sm-4 col-md-3">
+                    <a class="card-link text-decoration-none" href="game.html?card=mateus">
+                        <div class="card-library-item">
+                            <div class="elemento__cartao card shadow-sm p-0" aria-label="Mateus">
+                                <div class="caixa__foto">
+                                    <img class="elemento__foto__cobertura" src="imagens/mateus/fundo.svg" alt="Mateus fundo" loading="lazy">
+                                </div>
+                                <img class="elemento__personagem" src="imagens/mateus/3d.svg" alt="Mateus 3d" loading="lazy">
+                                <img class="elemento__titulo" src="imagens/mateus/titulo.svg" alt="Mateus titulo" loading="lazy">
+                            </div>
+                            <aside class="elemento__stats" aria-hidden="true" aria-label="Estatísticas">
+                                <div class="stats__inner"><h4 class="stats__title">Mateus</h4>
+                                    <div class="stat"><span class="stat__label">Fé</span><div class="stat__bar"><div class="stat__fill" style="--val:62%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Coragem</span><div class="stat__bar"><div class="stat__fill" style="--val:58%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Influência</span><div class="stat__bar"><div class="stat__fill" style="--val:60%"></div></div></div>
+                                </div>
+                            </aside>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- joao -->
+                <div class="col-6 col-sm-4 col-md-3">
+                    <a class="card-link text-decoration-none" href="game.html?card=joao">
+                        <div class="card-library-item">
+                            <div class="elemento__cartao card shadow-sm p-0" aria-label="João">
+                                <div class="caixa__foto">
+                                    <img class="elemento__foto__cobertura" src="imagens/joao/fundo.svg" alt="João fundo" loading="lazy">
+                                </div>
+                                <img class="elemento__personagem" src="imagens/joao/3d.svg" alt="João 3d" loading="lazy">
+                                <img class="elemento__titulo" src="imagens/joao/titulo.svg" alt="João titulo" loading="lazy">
+                            </div>
+                            <aside class="elemento__stats" aria-hidden="true" aria-label="Estatísticas">
+                                <div class="stats__inner"><h4 class="stats__title">João</h4>
+                                    <div class="stat"><span class="stat__label">Fé</span><div class="stat__bar"><div class="stat__fill" style="--val:80%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Coragem</span><div class="stat__bar"><div class="stat__fill" style="--val:60%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Influência</span><div class="stat__bar"><div class="stat__fill" style="--val:70%"></div></div></div>
+                                </div>
+                            </aside>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- judas_escariotes -->
+                <div class="col-6 col-sm-4 col-md-3">
+                    <a class="card-link text-decoration-none" href="game.html?card=judas_escariotes">
+                        <div class="card-library-item">
+                            <div class="elemento__cartao card shadow-sm p-0" aria-label="Judas Escariotes">
+                                <div class="caixa__foto">
+                                    <img class="elemento__foto__cobertura" src="imagens/judas_escariotes/fundo.svg" alt="Judas Escariotes fundo" loading="lazy">
+                                </div>
+                                <img class="elemento__personagem" src="imagens/judas_escariotes/3d.svg" alt="Judas Escariotes 3d" loading="lazy">
+                                <img class="elemento__titulo" src="imagens/judas_escariotes/titulo.svg" alt="Judas Escariotes titulo" loading="lazy">
+                            </div>
+                            <aside class="elemento__stats" aria-hidden="true" aria-label="Estatísticas">
+                                <div class="stats__inner"><h4 class="stats__title">Judas Escariotes</h4>
+                                    <div class="stat"><span class="stat__label">Fé</span><div class="stat__bar"><div class="stat__fill" style="--val:30%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Coragem</span><div class="stat__bar"><div class="stat__fill" style="--val:48%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Influência</span><div class="stat__bar"><div class="stat__fill" style="--val:50%"></div></div></div>
+                                </div>
+                            </aside>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- judas_tadeu -->
+                <div class="col-6 col-sm-4 col-md-3">
+                    <a class="card-link text-decoration-none" href="game.html?card=judas_tadeu">
+                        <div class="card-library-item">
+                            <div class="elemento__cartao card shadow-sm p-0" aria-label="Judas Tadeu">
+                                <div class="caixa__foto">
+                                    <img class="elemento__foto__cobertura" src="imagens/judas_tadeu/fundo.svg" alt="Judas Tadeu fundo" loading="lazy">
+                                </div>
+                                <img class="elemento__personagem" src="imagens/judas_tadeu/3d.svg" alt="Judas Tadeu 3d" loading="lazy">
+                                <img class="elemento__titulo" src="imagens/judas_tadeu/titulo.svg" alt="Judas Tadeu titulo" loading="lazy">
+                            </div>
+                            <aside class="elemento__stats" aria-hidden="true" aria-label="Estatísticas">
+                                <div class="stats__inner"><h4 class="stats__title">Judas Tadeu</h4>
+                                    <div class="stat"><span class="stat__label">Fé</span><div class="stat__bar"><div class="stat__fill" style="--val:40%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Coragem</span><div class="stat__bar"><div class="stat__fill" style="--val:62%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Influência</span><div class="stat__bar"><div class="stat__fill" style="--val:58%"></div></div></div>
+                                </div>
+                            </aside>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- thiago_maior -->
+                <div class="col-6 col-sm-4 col-md-3">
+                    <a class="card-link text-decoration-none" href="game.html?card=thiago_maior">
+                        <div class="card-library-item">
+                            <div class="elemento__cartao card shadow-sm p-0" aria-label="Tiago Maior">
+                                <div class="caixa__foto">
+                                    <img class="elemento__foto__cobertura" src="imagens/thiago_maior/fundo.svg" alt="Tiago Maior fundo" loading="lazy">
+                                </div>
+                                <img class="elemento__personagem" src="imagens/thiago_maior/3d.svg" alt="Tiago Maior 3d" loading="lazy">
+                                <img class="elemento__titulo" src="imagens/thiago_maior/titulo.svg" alt="Tiago Maior titulo" loading="lazy">
+                            </div>
+                            <aside class="elemento__stats" aria-hidden="true" aria-label="Estatísticas">
+                                <div class="stats__inner"><h4 class="stats__title">Tiago Maior</h4>
+                                    <div class="stat"><span class="stat__label">Fé</span><div class="stat__bar"><div class="stat__fill" style="--val:50%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Coragem</span><div class="stat__bar"><div class="stat__fill" style="--val:72%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Influência</span><div class="stat__bar"><div class="stat__fill" style="--val:68%"></div></div></div>
+                                </div>
+                            </aside>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- paulo -->
+                <div class="col-6 col-sm-4 col-md-3">
+                    <a class="card-link text-decoration-none" href="game.html?card=paulo">
+                        <div class="card-library-item">
+                            <div class="elemento__cartao card shadow-sm p-0" aria-label="Paulo">
+                                <div class="caixa__foto">
+                                    <img class="elemento__foto__cobertura" src="imagens/paulo/fundo.svg" alt="Paulo fundo" loading="lazy">
+                                </div>
+                                <img class="elemento__personagem" src="imagens/paulo/3d.svg" alt="Paulo 3d" loading="lazy">
+                                <img class="elemento__titulo" src="imagens/paulo/titulo.svg" alt="Paulo titulo" loading="lazy">
+                            </div>
+                            <aside class="elemento__stats" aria-hidden="true" aria-label="Estatísticas">
+                                <div class="stats__inner"><h4 class="stats__title">Paulo</h4>
+                                    <div class="stat"><span class="stat__label">Fé</span><div class="stat__bar"><div class="stat__fill" style="--val:60%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Coragem</span><div class="stat__bar"><div class="stat__fill" style="--val:85%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Influência</span><div class="stat__bar"><div class="stat__fill" style="--val:70%"></div></div></div>
+                                </div>
+                            </aside>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- davi -->
+                <div class="col-6 col-sm-4 col-md-3">
+                    <a class="card-link text-decoration-none" href="game.html?card=davi">
+                        <div class="card-library-item">
+                            <div class="elemento__cartao card shadow-sm p-0" aria-label="Davi">
+                                <div class="caixa__foto">
+                                    <img class="elemento__foto__cobertura" src="imagens/davi/fundo.svg" alt="Davi fundo" loading="lazy">
+                                </div>
+                                <img class="elemento__personagem" src="imagens/davi/3d.svg" alt="Davi 3d" loading="lazy">
+                                <img class="elemento__titulo" src="imagens/davi/titulo.svg" alt="Davi titulo" loading="lazy">
+                            </div>
+                            <aside class="elemento__stats" aria-hidden="true" aria-label="Estatísticas">
+                                <div class="stats__inner"><h4 class="stats__title">Davi</h4>
+                                    <div class="stat"><span class="stat__label">Fé</span><div class="stat__bar"><div class="stat__fill" style="--val:50%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Coragem</span><div class="stat__bar"><div class="stat__fill" style="--val:75%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Influência</span><div class="stat__bar"><div class="stat__fill" style="--val:80%"></div></div></div>
+                                </div>
+                            </aside>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- moises -->
+                <div class="col-6 col-sm-4 col-md-3">
+                    <a class="card-link text-decoration-none" href="game.html?card=moises">
+                        <div class="card-library-item">
+                            <div class="elemento__cartao card shadow-sm p-0" aria-label="Moisés">
+                                <div class="caixa__foto">
+                                    <img class="elemento__foto__cobertura" src="imagens/moises/fundo.svg" alt="Moisés fundo" loading="lazy">
+                                </div>
+                                <img class="elemento__personagem" src="imagens/moises/3d.svg" alt="Moisés 3d" loading="lazy">
+                                <img class="elemento__titulo" src="imagens/moises/titulo.svg" alt="Moisés titulo" loading="lazy">
+                            </div>
+                            <aside class="elemento__stats" aria-hidden="true" aria-label="Estatísticas">
+                                <div class="stats__inner"><h4 class="stats__title">Moisés</h4>
+                                    <div class="stat"><span class="stat__label">Fé</span><div class="stat__bar"><div class="stat__fill" style="--val:85%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Coragem</span><div class="stat__bar"><div class="stat__fill" style="--val:80%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Influência</span><div class="stat__bar"><div class="stat__fill" style="--val:55%"></div></div></div>
+                                </div>
+                            </aside>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- jesus_bonus -->
+                <div class="col-6 col-sm-4 col-md-3">
+                    <a class="card-link text-decoration-none" href="game.html?card=jesus_bonus">
+                        <div class="card-library-item">
+                            <div class="elemento__cartao card shadow-sm p-0" aria-label="Jesus">
+                                <div class="caixa__foto">
+                                    <img class="elemento__foto__cobertura" src="imagens/jesus_bonus/fundo.svg" alt="Jesus fundo" loading="lazy">
+                                </div>
+                                <img class="elemento__personagem" src="imagens/jesus_bonus/3d.svg" alt="Jesus 3d" loading="lazy">
+                                <img class="elemento__titulo" src="imagens/jesus_bonus/titulo.svg" alt="Jesus titulo" loading="lazy">
+                            </div>
+                            <aside class="elemento__stats" aria-hidden="true" aria-label="Estatísticas">
+                                <div class="stats__inner"><h4 class="stats__title">Jesus</h4>
+                                    <div class="stat"><span class="stat__label">Fé</span><div class="stat__bar"><div class="stat__fill" style="--val:100%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Coragem</span><div class="stat__bar"><div class="stat__fill" style="--val:100%"></div></div></div>
+                                    <div class="stat"><span class="stat__label">Influência</span><div class="stat__bar"><div class="stat__fill" style="--val:100%"></div></div></div>
+                                </div>
+                            </aside>
+                        </div>
+                    </a>
+                </div>
+
+            </div> <!-- #cards-container -->
+
+    </main>
+
+        <footer class="game-footer" style="margin-top:24px">
+            <small>Biblioteca local de cartas — explore e teste suas composições.</small>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="cards.js" defer></script>
 </body>
 

@@ -6,21 +6,27 @@
   --card-w:120px;
 }
 *{box-sizing:border-box}
+.body-bg {
+  background: radial-gradient(600px 300px at 10% 12%, rgba(124,58,237,0.08), transparent 12%),
+              radial-gradient(500px 220px at 92% 88%, rgba(59,130,246,0.06), transparent 12%),
+              linear-gradient(180deg,#071425 0%, #03040a 100%);
+}
+/* Fallback: ensure body always has a dark background even if wrapper class isn't used */
 body{
   margin:0;
   font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background:linear-gradient(180deg,#071017 0%, #0b0b0d 100%);
   color:#e6eef6;
+  background: radial-gradient(420px 220px at 10% 12%, rgba(124,58,237,0.06), transparent 12%), radial-gradient(360px 180px at 92% 88%, rgba(59,130,246,0.04), transparent 12%), linear-gradient(180deg,#071425 0%, #03040a 100%);
 }
-.game-shell{max-width:1200px;margin:24px auto;padding:16px;}
-.game-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.game-shell{max-width:none;width:100%;margin:0;padding:12px;min-height:100vh;height:100vh;display:flex;flex-direction:column}
+.game-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .game-header h1{font-size:18px;margin:0}
 .header-actions button{margin-left:8px;padding:8px 12px;border-radius:8px;border:none;background:#16161a;color:#fff}
 
 #turn-indicator{padding:6px 10px;background:rgba(125,211,252,0.06);border-radius:8px}
 
-.game-main{display:grid;grid-template-columns:1fr 320px;gap:16px}
-.players-area{background:rgba(255,255,255,0.02);padding:16px;border-radius:12px;display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.game-main{display:flex;justify-content:center;align-items:flex-start;gap:16px;flex:1;overflow:visible}
+.players-area{background:rgba(255,255,255,0.02);padding:12px;border-radius:12px;display:flex;flex-direction:column;gap:12px;align-items:stretch;overflow:visible;max-width:960px;margin:0 auto;width:100%}
 .player{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
 .player-info{display:flex;flex-direction:column}
 .player-name{font-weight:600}
@@ -31,13 +37,34 @@ body{
 .deck-toggle[aria-expanded="true"] + .deck-panel{display:block}
 .deck-stack{height:120px;background:linear-gradient(180deg,#0d1a22,#051013);border-radius:6px}
 
-.player-hand{display:flex;gap:10px;align-items:center}
-.player-hand .card{width:var(--card-w);height:170px;border-radius:10px;background:linear-gradient(180deg,#111827,#0b1220);box-shadow:0 6px 20px rgba(2,6,23,0.6);display:flex;align-items:center;justify-content:center;color:#fff}
+.player-hand{display:flex;gap:10px;align-items:center;overflow-x:auto;padding-bottom:6px;max-height:200px}
+.player-hand .card{flex:0 0 var(--card-w);height:170px;border-radius:10px;background:linear-gradient(180deg,#111827,#0b1220);box-shadow:0 6px 20px rgba(2,6,23,0.6);display:flex;align-items:center;justify-content:center;color:#fff}
 
-.battlefield{display:flex;align-items:center;justify-content:center;padding:18px;border-radius:10px;min-height:260px;background:linear-gradient(180deg,rgba(125,211,252,0.02),transparent);}
-.battle-center{display:flex;flex-direction:column;align-items:center;gap:12px}
+.battlefield{display:flex;align-items:center;justify-content:center;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(125,211,252,0.02),transparent);width:100%}
+.battle-center{max-width:920px;width:100%;display:flex;flex-direction:column;align-items:center;gap:12px}
 .draw-btn{padding:10px 14px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--accent),#60a5fa);color:#012;cursor:pointer}
-.battle-zone{width:760px;max-width:100%;height:180px;border-radius:12px;background:linear-gradient(180deg,#071018, #051016);display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.battle-zone{width:760px;max-width:100%;border-radius:12px;background:linear-gradient(180deg,#071018, #051016);display:flex;align-items:center;justify-content:center;color:var(--muted);flex:1;overflow:visible;min-height:360px}
+
+/* ensure battle-zone content scales and doesn't force page scroll */
+.battle-zone .battle-row{height:100%;align-items:center}
+
+/* center the battle area more prominently (merged earlier) */
+
+/* navbar */
+.main-nav{display:flex;gap:14px;margin:8px 0 12px 0}
+.main-nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
+.main-nav a.active{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#022;font-weight:700}
+
+/* battle slots */
+.battle-row{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%}
+.battle-slot{flex:1;min-height:320px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);display:flex;align-items:center;justify-content:center;color:var(--muted);position:relative;padding:12px}
+.battle-slot.player-slot{background:linear-gradient(180deg,#072026,#021012)}
+.battle-slot.opponent-slot{background:linear-gradient(180deg,#201217,#15090a)}
+.battle-slot.center-slot{background:linear-gradient(180deg,#0a1120,#081018)}
+.battle-slot.slot-over{outline:2px dashed rgba(125,211,252,0.4)}
+
+.elemento__cartao.played{width:110px;height:160px;margin:0;padding:0;transform:none}
+.elemento__cartao.dragging{opacity:0.6}
 
 .chat-panel{background:linear-gradient(180deg,#071018,#051016);padding:12px;border-radius:12px;display:flex;flex-direction:column;gap:8px;height:540px}
 .chat-header{font-weight:700}
@@ -65,3 +92,18 @@ body{
 
 /* small polish: floating card animation when drawn */
 .card.floating{transform:translateY(-12px) scale(1.02);transition:transform 300ms ease}
+
+.attr-modal{position:fixed;inset:0;background:rgba(2,6,12,0.64);display:none;align-items:center;justify-content:center;z-index:1200}
+.attr-modal-inner{background:linear-gradient(180deg,#071018,#08121a);padding:18px;border-radius:12px;min-width:260px;text-align:center;color:#e6eef6;box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+.attr-modal .attr-buttons{display:flex;gap:10px;justify-content:center;margin-top:12px}
+.attr-modal button{padding:10px 12px;border-radius:8px;border:none;background:linear-gradient(90deg,#ffd86b,#ff8a5b);color:#081018;font-weight:700;cursor:pointer}
+
+/* highlight the chosen stat in battle (applied dynamically) */
+.stat--highlight{box-shadow:inset 0 0 0 2px rgba(255,200,100,0.14);border-radius:8px;padding:6px}
+
+/* damage particles */
+.damage-burst{position:absolute;pointer-events:none}
+.damage-burst .particle{box-shadow:0 6px 16px rgba(0,0,0,0.6)}
+
+/* compact footer to avoid adding extra vertical space */
+.game-footer{display:flex;justify-content:center;align-items:center;color:var(--muted);font-size:13px;margin-top:8px;padding:6px 0}
